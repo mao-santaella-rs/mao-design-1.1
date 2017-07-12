@@ -1,0 +1,41 @@
+.skills
+	min-height: 100vh
+	text-align: center
+	display: flex
+	flex-wrap: nowrap
+	align-items: stretch
+
+.skills__item
+	width: 33.333%
+	display: flex
+	padding: 5%
+	display: flex
+	align-items: center
+
+
+.item-inner-cont
+	span
+		@extend h2
+		text-transform: uppercase
+		display: block
+
+	p
+		color: $white
+		font-size: 14px
+
+.svg-holder
+	width: 50%
+	display: inline-block
+	margin-bottom: 25px
+
+
+@media (max-width: 800px)
+	.skills
+		flex-wrap: wrap
+
+	.skills__item
+		width: 100%
+		padding: 10%
+
+	.svg-holder
+		width: 30%

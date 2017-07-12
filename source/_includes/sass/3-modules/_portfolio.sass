@@ -1,0 +1,71 @@
+.portfolio
+	min-height: 100vh
+
+.port__ctrls-cont
+	text-align: center
+
+.port__content-cont
+	margin-top: 25px
+	display: flex
+	flex-wrap: wrap
+	justify-content: center
+	.title
+		color: $white
+		text-transform: uppercase
+		text-align: center
+		position: relative
+		border: none
+		span
+			font-family: $heading-font-family
+			font-weight: $heading-font-weight
+			font-size: 2rem
+			+position(absolute, 50% null null 50%)
+			transform: translate(-50%, -50%)
+
+
+.port__item
+	+size(200px)
+	position: relative
+	overflow: hidden
+
+	&:hover
+		//cursor: pointer
+		.item-hover
+			height: 100%
+		.item-link
+			top: 50%
+			opacity: 100
+		.port__img
+			filter: grayscale(0%)
+.port__img
+	filter: grayscale(100%)
+	transition: -webkit-filter 0.5s $base-duration $base-timing
+	// ARREGLAR 888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888
+.item-hover
+	+position(absolute, 0 null null 0)
+	+size(100% 0)
+	transition: height 0.5s $base-duration $base-timing
+
+	&:before
+		content: ""
+		background-color: $black
+		+position(absolute, 0 null null 0)
+		opacity: 0.5
+		width: 100%
+		height: 100%
+		transition: height $base-duration $base-timing
+
+.item-link
+	font-family: $heading-font-family
+	font-weight: $heading-font-weight
+	font-size: 1rem
+	color: $white
+	opacity: 0
+	line-height: 1.1em
+	text-align: center
+	+position(absolute, 0% null null 50%)
+	transform: translate(-50%, -50%)
+	transition: top 0.5s $base-duration $base-timing, opacity 0.5s $base-duration $base-timing
+	&:hover
+		color: $white
+		text-decoration: underline

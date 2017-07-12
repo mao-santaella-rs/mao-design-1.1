@@ -1,0 +1,29 @@
+.btn-portfolio
+	display: inline-block
+	color: $white
+	padding: 10px 15px
+	text-transform: uppercase
+	width: 110px
+	text-align: center
+	position: relative
+	border: 2px solid rgba(0, 0, 0, 0)
+	transition: border $base-duration $base-timing
+	&:hover
+		border: 2px solid $white
+		color: $white
+	&:active, &:visited
+		color: $white
+
+.btn-form[type="submit"]
+	float: right
+	background-color: $color-naranja
+	font-weight: 100
+	&:hover
+		background-color: darken($color-naranja, 20%)
+	&:focus
+		box-shadow: none
+		background-color: $color-naranja
+		outline-color: lighten($color-naranja, 50%)
+	&:active
+		border-color: $color-naranja
+		box-shadow: none

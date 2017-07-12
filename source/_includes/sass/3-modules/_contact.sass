@@ -1,0 +1,63 @@
+.form
+	display: flex
+	align-items: center
+	flex-direction: column
+
+.form__cont
+	max-width: 625px
+	+auto-height
+
+.form__left-cont
+	width: 300px
+	margin-right: 25px
+	float: left
+
+.form__rigth-cont
+	width: 300px
+	float: left
+
+input[type="text"], textarea
+	color: $white
+	background-color: $darken-gray
+	+placeholder($base-font-family, $white)
+	border-radius: 0
+	border: 0
+	border-bottom: $base-border
+	border-left: $base-border
+	margin-bottom: 25px
+	&:focus
+		border-color: $color_naranja
+		box-shadow: none
+		outline: none
+
+textarea
+	height: 105px
+	resize: none
+
+.form__feedback
+	max-width: 625px
+
+.feedback
+	width: 80%
+	float: left
+	p
+		color: $white
+		font-size: 14px
+
+
+
+@media(max-width: 700px)
+
+	.form__cont
+		width: 100%
+
+	.form__left-cont,.form__rigth-cont
+		width: 100%
+
+@media(max-width: 550px)
+	.feedback
+		width: 70%
+
+@media(max-width: 400px)
+	.feedback
+		width: 100%
