@@ -1,10 +1,10 @@
 .portfolio
 	min-height: 100vh
 
-.port__ctrls-cont
+.portfolio__ctrls-cont
 	text-align: center
 
-.port__content-cont
+.portfolio__content-cont
 	margin-top: 25px
 	display: flex
 	flex-wrap: wrap
@@ -23,49 +23,104 @@
 			transform: translate(-50%, -50%)
 
 
-.port__item
+.portfolio__item
 	+size(200px)
 	position: relative
-	overflow: hidden
-
+	transition: z-index 0.2s $base-timing
+	z-index: 1000
 	&:hover
+		z-index: 1500
 		//cursor: pointer
 		.item-hover
-			height: 100%
-		.item-link
-			top: 50%
-			opacity: 100
-		.port__img
+			bottom: -70px
+			opacity: 1
+		.portfolio__link
+			transform: scale(1.25)
+			box-shadow: 0px 0px 15px 0px rgba(0,0,0,0.7)
+			&:after
+				background: rgba(255,102,0, 0.0)
+		.portfolio__img
 			filter: grayscale(0%)
-.port__img
-	filter: grayscale(100%)
-	transition: -webkit-filter 0.5s $base-duration $base-timing
-	// ARREGLAR 888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888
-.item-hover
-	+position(absolute, 0 null null 0)
-	+size(100% 0)
-	transition: height 0.5s $base-duration $base-timing
 
-	&:before
+.portfolio__item-blue
+	@extend .portfolio__item
+	background-color: $color-azul
+
+	.portfolio__link
+		&:after
+			background-color: rgba($color-azul, 0.05)
+
+	.item-hover
+		background-color: $color-azul
+
+.portfolio__item-red
+	@extend .portfolio__item
+	background-color: $color-rojo
+
+	.portfolio__link
+		&:after
+			background-color: rgba($color-rojo, 0.07)
+
+	.item-hover
+		background-color: $color-rojo
+
+.portfolio__item-orange
+	@extend .portfolio__item
+	background-color: $color-naranja
+
+	.portfolio__link
+		&:after
+			background-color: rgba($color-naranja, 0.15)
+
+	.item-hover
+		background-color: $color-naranja
+
+
+
+
+
+
+
+
+.portfolio__link
+	display: block
+	transform: scale(1)
+	box-shadow: 0px 0px 0px 0px rgba(0,0,0,0.7)
+	transition: transform 0.2s $base-timing, box-shadow 0.2s $base-timing
+	position: relative
+
+	&:after
 		content: ""
-		background-color: $black
-		+position(absolute, 0 null null 0)
-		opacity: 0.5
-		width: 100%
-		height: 100%
-		transition: height $base-duration $base-timing
+		display: block
+		+position(absolute,0 0 0 0)
+		transition: background 0.2s $base-timing
 
-.item-link
-	font-family: $heading-font-family
-	font-weight: $heading-font-weight
-	font-size: 1rem
+.portfolio__img
+	filter: grayscale(100%)
+	transition: filter 0.2s $base-timing
+
+.item-hover
+	display: flex
+	align-items: center
+	justify-content: center
+	height: 70px
+	width: 100%
+	padding: 10px
+
+
+	font-family: $base-font-family
+	font-weight: $base-font-weight
+	font-size: 0.8rem
+	letter-spacing: 0.5px
 	color: $white
 	opacity: 0
 	line-height: 1.1em
 	text-align: center
-	+position(absolute, 0% null null 50%)
-	transform: translate(-50%, -50%)
-	transition: top 0.5s $base-duration $base-timing, opacity 0.5s $base-duration $base-timing
-	&:hover
-		color: $white
-		text-decoration: underline
+
+	+position(absolute, null null 0px 50%)
+	transform: translate(-50%,0)
+	z-index: 10000
+	box-shadow: 5px 5px 15px 0px rgba(0,0,0,0.6)
+	opacity: 0
+	pointer-events: none
+	transition: bottom $base-duration $base-timing, opacity $base-duration $base-timing
