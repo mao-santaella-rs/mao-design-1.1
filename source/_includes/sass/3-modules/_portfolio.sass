@@ -9,6 +9,7 @@
 	display: flex
 	flex-wrap: wrap
 	justify-content: center
+
 	.title
 		color: $white
 		text-transform: uppercase
@@ -21,6 +22,7 @@
 			font-size: 2rem
 			+position(absolute, 50% null null 50%)
 			transform: translate(-50%, -50%)
+			letter-spacing: 1px
 
 
 .portfolio__item
@@ -124,3 +126,31 @@
 	opacity: 0
 	pointer-events: none
 	transition: bottom $base-duration $base-timing, opacity $base-duration $base-timing
+
+	span
+		line-height: 1.4em
+
+
+
+
+
+
+@media(max-width:700px)
+
+
+
+@media(max-width:550px)
+
+
+
+@media(max-width:450px)
+	.portfolio
+		padding-left: 0
+		padding-right: 0
+
+
+
+@media(max-width:400px)
+	.portfolio__item
+		width: 50%
+		height: auto

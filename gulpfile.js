@@ -44,7 +44,7 @@ var carpeta = {
 
 	js: {
 		src		: src + '/js/*.js',
-		inc		: src + '/_includes/js/**/*.js',
+		inc		: src + '/_includes/js',
 		pub		: pub + '/js'
 	},
 
@@ -280,7 +280,7 @@ gulp.task('compress', function() {
 
 // CONCATENA Y COMPRIME LOS ARCHIVOS JS EN LA CARPETA JS DE INCLUDES
 gulp.task('concat', function() {
-	return gulp.src([carpeta.js.inc + '/_jquery-*.js', carpeta.js.inc + '/*.js'])
+	gulp.src([carpeta.js.inc + '/_jquery-*.js', carpeta.js.inc + '/*.js'])
 		// PREVIENE QUE LOS PROCESOS GULP.WATCH SE DETENGA AL ENCONTRAR UN ERROR
 		.pipe(plumber())
 
@@ -297,9 +297,9 @@ gulp.task('concat', function() {
 		.pipe( notify("PLUG-INS .JS CONCATENADOS: <%= file.relative %>"))
 
 		// REFRESCADO DEL NAVEGADOR
-		.pipe(browserSync.reload({
-			stream: true
-		}));
+		// .pipe(browserSync.reload({
+		// 	stream: true
+		// }));
 });
 
 // COMPILAR TYPESCRIPT

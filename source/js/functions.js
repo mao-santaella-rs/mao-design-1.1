@@ -46,22 +46,44 @@ function bubble_hello(){
 
 $(document).ready(function(){
 
+	// $.featherlight($('#web-1'));
+
 	// 3d para el logo
-    $header.mousemove(function(ev){
-        var x = ev.pageX - $header.position().left;
-        var y = ev.pageY - $header.position().top;
-        var dx = $header.innerWidth()/2 - x;
-        var dy = $header.innerHeight()/2 - y;
-        var dxp = dx/($header.innerWidth()/2);
-        var dyp = dy/($header.innerHeight()/2);
+	$header.mousemove(function(ev){
+		var x = ev.pageX - $header.position().left;
+		var y = ev.pageY - $header.position().top;
+		var dx = $header.innerWidth()/2 - x;
+		var dy = $header.innerHeight()/2 - y;
+		var dxp = dx/($header.innerWidth()/2);
+		var dyp = dy/($header.innerHeight()/2);
 
-        var newTransformRotateXY = "rotateY(" + 20*Math.tan(dxp) + "deg) rotateX(" + -20*Math.tan(dyp) + "deg)";
+		var newTransformRotateXY = "rotateY(" + 20*Math.tan(dxp) + "deg) rotateX(" + -20*Math.tan(dyp) + "deg)";
 
-        $header_logo_cont.css({
-            '-webkit-transform': newTransformRotateXY
-        });
-    });
+		$header_logo_cont.css({
+			'transform': newTransformRotateXY
+		});
+	});
 
 	bubble_hello();
+
+	// activacion de de las baggras en graphics
+
+	var $graphics = $('#js-graphics');
+	var $graphics_container = $graphics.find('.graphics');
+	var graficsIniPos = "bar-inipos";
+
+
+	$(window).scroll(function() {
+		scrollTop = $(window).scrollTop() + ($(window).height() / 2);
+		gContPos = $graphics.offset().top;
+
+		if(scrollTop >= gContPos){
+			$graphics_container.removeClass(graficsIniPos);
+		};
+
+		// console.log(scrollTop);
+		// console.log(gContPos);
+	});
+
 
 });

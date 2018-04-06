@@ -1,33 +1,32 @@
 .about
 
+
+$graphics-spacing: 75px
+
+
 .about__graphics-cont
-	+auto-height
 	margin-bottom: 25px
 	display: flex
 	justify-content: center
+	align-items: center
+	+position(relative, null null null (-($graphics-spacing / 2)))
 
 	.image-cont
 		text-align: center
-		margin-right: 25px
 
 	.image-frame
 		display: inline-block
 		+size(200px)
 		border-radius: 50%
 		overflow: hidden
-		border: 6px solid $color-rojo
+		border: 6px solid $darken-gray
+		+position(relative, null null null $graphics-spacing)
 
 	.graphics
-		width: 300px
-		padding-top: 30px
-
-	@media(max-width: 550px)
-		flex-direction: column
-		.graphics
-			width: 100%
-
-		.image-cont
-			margin: 0
+		background-color: $darken-gray
+		padding: 30px $graphics-spacing 30px 100px
+		width: 500px
+		border-radius: 0 $graphics-spacing $graphics-spacing 0
 
 
 .bar-container
@@ -35,44 +34,117 @@
 	text-transform: uppercase
 	span
 		display: block
+		font-size: 0.7rem
+		line-height: 10px
+		margin-bottom: 5px
 
 	.bar-underline
 		height: 5px
 
-		.bar-inside
-			width: 50%
-			height: 4px
+	.bar-inside
+		height: 4px
+		transition: width $base-duration $base-duration
 
-.bar-green
-	span
-		color: $color-azul
-	.bar-underline
-		border-bottom: 1px solid $color-azul
-		.bar-inside
-			background-color: lighten($color-azul, 15%)
-
-.bar-red
-	span
-		color: $color-rojo
-	.bar-underline
-		border-bottom: 1px solid $color-rojo
-		.bar-inside
-			background-color: lighten($color-rojo, 10%)
+	&:last-child
+		margin: 0
 
 .bar-orange
 	span
 		color: $color-naranja
 	.bar-underline
 		border-bottom: 1px solid $color-naranja
+	.bar-inside
+		background-color: lighten($color-naranja, 10%)
+		width: 90%
+		transition-duration: 1s
+
+.bar-green
+	span
+		color: $color-azul
+	.bar-underline
+		border-bottom: 1px solid $color-azul
+	.bar-inside
+		background-color: lighten($color-azul, 15%)
+		width: 95%
+		transition-duration: 1.5s
+
+.bar-red
+	span
+		color: $color-rojo
+	.bar-underline
+		border-bottom: 1px solid $color-rojo
+	.bar-inside
+		background-color: lighten($color-rojo, 10%)
+		width: 85%
+		transition-duration: 2s
+
+
+.bar-inipos
+	.bar-container
 		.bar-inside
-			background-color: lighten($color-naranja, 10%)
+			width: 0
+
+
 
 
 .about__text-cont
 	padding: 0 10%
+	margin-bottom: 30px
 	p
 		color: $white
 		text-align: justify
 
-	@media(max-width: 550px)
+
+
+.about__keywords
+	padding: 0 10%
+	text-align: center
+	span
+		display: inline-block
+		padding: 0.5em 1em
+		background-color: darken($color-azul, 15%)
+		color: $white
+		margin-right: 5px
+		margin-bottom: 5px
+		font-size: 0.8rem
+
+
+
+
+
+
+
+@media(max-width:700px)
+
+
+@media(max-width:550px)
+
+	.about__graphics-cont
+		left: 0
+		right: $graphics-spacing
+		flex-direction: column
+
+
+		.graphics
+			// +position(relative, null $graphics-spacing null null)
+			padding: 30px ($graphics-spacing - 20px)
+			border-radius: $graphics-spacing
+			width: 100%
+
+		.image-cont
+			margin: 0
+			// text-align: center
+
+		.image-frame
+			left: auto
+
+
+	.about__text-cont
 		padding: 0
+
+
+
+@media(max-width:400px)
+
+
+@media(max-width:350px)

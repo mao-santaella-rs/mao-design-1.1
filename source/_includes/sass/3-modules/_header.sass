@@ -5,13 +5,17 @@
 	justify-content: center
 	align-items: center
 	flex-direction: column
-	// transform-style: preserve-3d
 	perspective: 1000px
+
 
 .header__logo-cont
 	position: relative
 	transform-style: preserve-3d
 	perspective: 500px
+	display: flex
+	flex-direction: column
+	justify-content: center
+	align-items: center
 	svg
 		fill: $darken-gray
 		width: 140px
@@ -26,12 +30,11 @@
 	justify-content: center
 	align-items: center
 	text-align: center
-	+position(absolute, null null 120% 70%)
+	+position(relative, -40px null null 110px)
 	transform-style: preserve-3d
 	perspective: 1000px
 	animation: bubble-in 1s forwards
 	perspective-origin: bottom
-	// transform: translate3d(0px,10px,25px)
 
 	&:after
 		content: ""
@@ -58,7 +61,6 @@
 		transform: rotate3d(1, 0, 0, 90deg) translateZ(50px)
 
 	100%
-		// opacity: 1
 		transform: rotate3d(0, 0, 0, 90deg) translateZ(50px)
 
 
@@ -75,3 +77,45 @@
 		margin: 10px 0
 		span
 			letter-spacing: 0
+
+
+
+
+
+
+
+
+@media(max-width:700px)
+
+
+
+@media(max-width:550px)
+	.header__logo__bubble
+		left: 70px
+		top: -20px
+
+
+	@keyframes bubble-in
+		0%
+			opacity: 0
+			transform: rotate3d(1, 0, 0, 90deg) translateZ(50px) scale(0.2)
+
+		100%
+			transform: rotate3d(0, 0, 0, 90deg) translateZ(50px) scale(0.8)
+
+@media(max-width:400px)
+
+
+
+@media(max-width:350px)
+	.header__logo__bubble
+		top: -00px
+
+	@keyframes bubble-in
+		0%
+			opacity: 0
+			transform: rotate3d(1, 0, 0, 90deg) translateZ(50px) scale(0.2)
+
+		100%
+			// opacity: 1
+			transform: rotate3d(0, 0, 0, 90deg) translateZ(50px) scale(0.6)
